@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -66,8 +67,15 @@ public class HomeController {
 //		return "joinOk";
 //	}
 	
-	@RequestMapping(value = "/joinOk") 
-	public String joinOk(MemberDto memberDto) {//객체이름이 DTO 클래스의 이름과 동일해야함
+//	@RequestMapping(value = "/joinOk") 
+//	public String joinOk(MemberDto memberDto) {//객체이름이 DTO 클래스의 이름과 동일해야함
+//		
+//		return "joinOk";
+//	}
+	
+	@RequestMapping(value = "/joinOk")
+	//@ModelAttribute 로 데이터 객체의 이름을 원하는 이름으로 변경 가능
+	public String joinOk(@ModelAttribute("memberInfo") MemberDto memberDto) {
 		
 		return "joinOk";
 	}
